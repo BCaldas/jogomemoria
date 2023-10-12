@@ -6,7 +6,6 @@
 var interval;
 
 const imagens = ["vitoria.png", "sport.png", "palmeiras.png", "goias.png", "flamengo.png", "chapecoense.png", "bahia.png", "vasco.png", "saopaulo.png", "internacional.png", "fortaleza.png", "cruzeiro.png", "bragantino2.png", "atletico.png", "tupi.png", "santos.png", "gremio.png", "fluminense.png", "corinthians.png", "botafogo.png"];
-
 const grid = document.querySelector('.grid');
 var primeiroGrid = [];
 var segundoGrid = [];
@@ -17,8 +16,6 @@ window.onload = function () {
     starTimer(duracao, display);
 
     primeiroGrid = [...imagens.sort(() => Math.random() - 0.5).splice(0, 15)]
-    // console.log(primeiroGrid);
-    // console.log(imagens)
 
     gerarGrid(primeiroGrid)
 }
@@ -34,7 +31,6 @@ function starTimer(duracao, display) {
         if (--timer < 0) {
             clearInterval(interval);
             rearranjarImagens();
-
         }
     }, 1000);
 
@@ -73,6 +69,7 @@ function rearranjarImagens() {
             }
 
             if (contador === 10) {
+                //Gambi para o alert aparecer depois do card sumir
                 setTimeout(function () {
                     alert('GANHOU!!!')
                 }, 100);
@@ -91,14 +88,9 @@ function gerarGrid(imagens) {
 
         var divImagem = document.createElement('div');
         divImagem.className = 'card';
-
-        // divImagem.style.backgroundImag0e = 'url(img/'+ img+')'
-
         var escudo = document.createElement('img');
         escudo.src = 'img/' + img;
-
         divImagem.appendChild(escudo)
-
         grid.appendChild(divImagem);
 
     }
